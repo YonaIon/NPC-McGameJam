@@ -8,7 +8,6 @@ public class Scene01 : MonoBehaviour
         //need to control the blinkers
         public GameObject BlinkTop;
         public GameObject BlinkBottom;
-        public GameObject BlackScreen;
 
         //run once at start
         void Start()
@@ -21,7 +20,6 @@ public class Scene01 : MonoBehaviour
                 yield return new WaitForSeconds(2);
                 BlinkTop.SetActive(true);
                 BlinkBottom.SetActive(true);
-                BlackScreen.SetActive(false);
         }
 
         //run constantly
