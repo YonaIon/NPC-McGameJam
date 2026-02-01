@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
   wait: 0
-  Space: {fileID: 0}
+  Space: {fileID: 661563271}
 --- !u!1 &1506730221
 GameObject:
   m_ObjectHideFlags: 0
