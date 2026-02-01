@@ -7,6 +7,7 @@ public class TypewriterEffect : MonoBehaviour
     private TextMeshProUGUI textComponent;
     [SerializeField] private float typingSpeed = 0.05f; // Time delay 
     [SerializeField] private string fullText;
+    [SerializeField] private bool wait;
 
     void Start()
     {
@@ -24,6 +25,9 @@ public class TypewriterEffect : MonoBehaviour
         // Set the number of visible characters to 0 initially
         textComponent.maxVisibleCharacters = 0;
 
+        if (wait) {
+            yield return new WaitForSeconds(7f);
+        }
         // Loop through each character
         for (int i = 0; i <= fullText.Length; i++)
         {
