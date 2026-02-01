@@ -49,15 +49,7 @@ public class ChoiceController : MonoBehaviour
     private void ChooseNoRewrite()
     {
         choicePanel.SetActive(false);
-
-        // Check if player has all required clues
-        bool hasAll = Journal.Instance.TotalClues >= 3;
-
         Journal.Instance.ClearClues(); // reset journal
-
-        if (hasAll)
-            SceneManager.LoadScene(endingScene2);
-        else
-            SceneManager.LoadScene(endingScene1);
+        SceneManager.LoadScene(endingScene2);
     }
 }
