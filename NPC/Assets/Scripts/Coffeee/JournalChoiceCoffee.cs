@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using UnityEngine.SceneManagement;
 
-public class JournalDisplay : MonoBehaviour
+public class JournalChoiceCoffee : MonoBehaviour
 {
     public Button coffeeButton;
     public Button defaultButton;
@@ -13,7 +13,6 @@ public class JournalDisplay : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("=== JournalDisplay Start ===");
         ShowOnlySelectedButton();
     }
 
