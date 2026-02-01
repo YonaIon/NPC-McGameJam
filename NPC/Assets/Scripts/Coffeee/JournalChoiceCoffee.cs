@@ -1,63 +1,70 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine.SceneManagement;
 
 public class JournalDisplay : MonoBehaviour
 {
-    [Header("Placeholder")]
-    public GameObject jourSkinPlaceholder;
-    
-    [Header("Journal Skin Images")]
-    public GameObject coffeeImage;
-    public GameObject defaultImage;
-    public GameObject flyImage;
+    public Button coffeeButton;
+    public Button defaultButton;
+    public Button flyButton;
 
     void Start()
     {
         Debug.Log("=== JournalDisplay Start ===");
-        ReplaceWithChosenSkin();
+        ShowOnlySelectedButton();
     }
 
-    void ReplaceWithChosenSkin()
+    void ShowOnlySelectedButton()
     {
         string chosenSkin = JournalSkinData.ChosenSkin;
+        Debug.Log($"Chosen skin: {chosenSkin}");
         
-        // Hide placeholder
-        if (jourSkinPlaceholder != null)
-            jourSkinPlaceholder.SetActive(false);
-
-        // Hide all skin images first
-        if (coffeeImage != null) coffeeImage.SetActive(false);
-        if (defaultImage != null) defaultImage.SetActive(false);
-        if (flyImage != null) flyImage.SetActive(false);
-
-        // Check if a skin was chosen
-        if (string.IsNullOrEmpty(chosenSkin))
+        // Hide all buttons first
+        if (coffeeButton != null) coffeeButton.gameObject.SetActive(false);
+        if (defaultButton != null) defaultButton.gameObject.SetActive(false);
+        if (flyButton != null) flyButton.gameObject.SetActive(false);
+        
+        // Show only the button for the selected skin
+        if (chosenSkin == "Coffee" && coffeeButton != null)
         {
-            Debug.LogWarning("No skin chosen - showing placeholder");
-            if (jourSkinPlaceholder != null) jourSkinPlaceholder.SetActive(true);
-            return;
+            coffeeButton.gameObject.SetActive(true);
         }
-
-        // Show the correct image
-        if (chosenSkin == "Coffee" && coffeeImage != null)
+        else if (chosenSkin == "Default" && defaultButton != null)
         {
-            coffeeImage.SetActive(true);
-            Debug.Log("SUCCESS: Coffee image active");
+            defaultButton.gameObject.SetActive(true);
         }
-        else if (chosenSkin == "Default" && defaultImage != null)
+        else if (chosenSkin == "Fly" && flyButton != null)
         {
-            defaultImage.SetActive(true);
-            Debug.Log("SUCCESS: Default image active");
-        }
-        else if (chosenSkin == "Fly" && flyImage != null)
-        {
-            flyImage.SetActive(true);
-            Debug.Log("SUCCESS: Fly image active");
+            flyButton.gameObject.SetActive(true);
         }
         else
         {
-            Debug.LogError($"Failed to show skin: '{chosenSkin}' - Image GameObjects may not be assigned!");
-            if (jourSkinPlaceholder != null) jourSkinPlaceholder.SetActive(true);
+            Debug.LogError($"Unknown or missing skin: '{chosenSkin}' - showing all buttons");
+            // Fallback: show all buttons if something went wrong
+            if (coffeeButton != null) coffeeButton.gameObject.SetActive(true);
+            if (defaultButton != null) defaultButton.gameObject.SetActive(true);
+            if (flyButton != null) flyButton.gameObject.SetActive(true);
         }
+    }
+
+    public void LoadCoffeeOpen()
+    {
+        Debug.Log("Coffee button clicked - Loading CoffeeOpen scene");
+        SceneManager.LoadScene("CoffeeOpen");
+    }
+
+    public void LoadDefaultOpen()
+    {
+        Debug.Log("Default button clicked - Loading DefaultOpen scene");
+        SceneManager.LoadScene("DefaultOpen");
+    }
+
+    public void LoadFlyOpen()
+    {
+        Debug.Log("Fly button clicked - Loading FlyOpen scene");
+        SceneManager.LoadScene("FlyOpen");
     }
 }
