@@ -248,7 +248,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 105422919}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coffeeButton: {fileID: 105422922}
-  defaultButton: {fileID: 0}
+  defaultButton: {fileID: 775007389}
   flyButton: {fileID: 2027995220}
 --- !u!4 &252393225
 Transform:
@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 775007390}
   - component: {fileID: 775007389}
   - component: {fileID: 775007388}
+  - component: {fileID: 775007391}
   m_Layer: 5
   m_Name: DefaultJ
   m_TagString: Untagged
@@ -892,10 +893,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 775007388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252393224}
+        m_TargetAssemblyTypeName: JournalDisplay, Assembly-CSharp
+        m_MethodName: LoadDefaultOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &775007390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -904,6 +917,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775007386}
   m_CullTransparentMesh: 1
+--- !u!114 &775007391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775007386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae25944dc2d678489be0517e8751a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverOffset: {x: 60, y: 200, z: 0}
+  moveSpeed: 2000
 --- !u!1 &839753247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1936,7 @@ GameObject:
   - component: {fileID: 2027995222}
   - component: {fileID: 2027995220}
   - component: {fileID: 2027995221}
+  - component: {fileID: 2027995224}
   m_Layer: 5
   m_Name: FlyJ
   m_TagString: Untagged
@@ -1956,10 +1984,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2027995221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252393224}
+        m_TargetAssemblyTypeName: JournalDisplay, Assembly-CSharp
+        m_MethodName: LoadFlyOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2027995221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2015,6 +2055,20 @@ RectTransform:
   m_AnchoredPosition: {x: -873, y: -654.9999}
   m_SizeDelta: {x: 820, y: 650}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2027995224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027995219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae25944dc2d678489be0517e8751a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverOffset: {x: 60, y: 200, z: 0}
+  moveSpeed: 2000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
