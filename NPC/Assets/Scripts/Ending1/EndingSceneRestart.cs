@@ -5,22 +5,24 @@ using System.Collections;
 
 public class EndingSceneRestart : MonoBehaviour
 {
-    [Header("UI")]
-    public TextMeshProUGUI endingText;
-
-    [TextArea(5, 10)]
-    public string endingMessage;
-
-    [Header("Timing")]
     public float textDelay = 1.5f;
     public float restartDelay = 6f;
-
-    [Header("Scenes")]
-    public string firstSceneName = "Scene01";
+    public GameObject wakeUpButton;
 
     private void Start()
     {
+        Journal.Instance.ClearClues();
         StartCoroutine(PlayEnding());
+    }
+
+    public void OnWakeUpButtonClicked()
+    {
+        RestartGame();
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene("Startup");
     }
 
     private IEnumerator PlayEnding()
@@ -31,15 +33,10 @@ public class EndingSceneRestart : MonoBehaviour
         // Wait before restarting
         yield return new WaitForSeconds(restartDelay);
 
-        RestartGame();
+         yield return new WaitForSeconds(2);
+        wakeUpButton.SetActive(true);
+
     }
 
-    private void RestartGame()
-    {
-        // Reset global data
-        Journal.Instance.ClearClues();
 
-        // Load first scene
-        SceneManager.LoadScene(firstSceneName);
-    }
 }
