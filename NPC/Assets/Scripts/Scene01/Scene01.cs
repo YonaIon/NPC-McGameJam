@@ -9,6 +9,7 @@ public class Scene01: MonoBehaviour
         public GameObject BlinkTop;
         public GameObject BlinkBottom;
         public GameObject WakeUpButton;
+        public GameObject Title;
 
         //run once at start
         void Start()
@@ -28,6 +29,7 @@ public class Scene01: MonoBehaviour
                 BlinkTop.SetActive(true);
                 BlinkBottom.SetActive(true);
                 WakeUpButton.SetActive(true);
+                Title.SetActive(true);
         }
 
         //run constantly
