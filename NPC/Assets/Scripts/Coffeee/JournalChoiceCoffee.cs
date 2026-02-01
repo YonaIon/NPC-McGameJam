@@ -15,7 +15,6 @@ public class JournalDisplay : MonoBehaviour
     {
         Debug.Log("=== JournalDisplay Start ===");
         ShowOnlySelectedButton();
-        //SetupButtons();
     }
 
     void ShowOnlySelectedButton()
@@ -50,23 +49,6 @@ public class JournalDisplay : MonoBehaviour
             if (flyButton != null) flyButton.gameObject.SetActive(true);
         }
     }
-
-    /*void SetupButtons()
-    {
-        // Link each button directly to its corresponding scene
-        if (coffeeButton != null)
-        {
-            coffeeButton.onClick.AddListener(LoadCoffeeOpen);
-        }
-        if (defaultButton != null)
-        {
-            defaultButton.onClick.AddListener(LoadDefaultOpen);
-        }
-        if (flyButton != null)
-        {
-            flyButton.onClick.AddListener(LoadFlyOpen);
-        }
-    }*/
 
     public void LoadCoffeeOpen()
     {
