@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI; // For Text component
 using TMPro; // For TextMeshPro component (if using TextMeshPro)
 
+using UnityEngine.SceneManagement;
 public class FlyOpenScript : MonoBehaviour
 {
     public GameObject Clue1;
@@ -19,7 +20,13 @@ public class FlyOpenScript : MonoBehaviour
         lastClueCount = Journal.Instance.TotalClues; // Remember initial clue count
     }
     
-    public void Starter()
+    public void LoadNextScene()
+        {
+            Debug.Log("Button Pressed");
+            SceneManager.LoadScene("CoffeeScene");
+        }
+    
+        public void Starter()
     {
         // Check if Journal exists
         if (Journal.Instance == null)
