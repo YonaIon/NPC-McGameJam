@@ -56,18 +56,13 @@ public class JournalChoice : MonoBehaviour
     /// </summary>
     public void SelectJournalSkin(string skinName)
     {
-        if (Journal.Instance != null)
-        {
-            Journal.Instance.SetJournalSkin(skinName);
+        // Store in static variable - this persists across scenes!
+        JournalSkinData.ChosenSkin = skinName;
+        Debug.Log($"SAVED skin to static: '{JournalSkinData.ChosenSkin}'");
+        
+        if (journalChoiceUI != null)
+            journalChoiceUI.SetActive(false);
             
-            if (journalChoiceUI != null)
-                journalChoiceUI.SetActive(false);
-                
-            Debug.Log($"Journal skin '{skinName}' selected and set permanently.");
-        }
-        else
-        {
-            Debug.LogError("Journal instance not found!");
-        }
+        Debug.Log($"Journal skin '{skinName}' selected.");
     }
 }

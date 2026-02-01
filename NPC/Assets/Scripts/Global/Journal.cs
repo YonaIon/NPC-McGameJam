@@ -22,17 +22,29 @@ public class Journal : ScriptableObject
         {
             if (instance == null)
             {
+                Debug.Log("Loading Journal from Resources...");
                 instance = Resources.Load<Journal>("Journal");
                 if (instance == null)
                 {
                     Debug.LogError("Journal ScriptableObject not found in Resources folder!");
+                }
+                else
+                {
+                    Debug.Log($"Journal loaded successfully. Current skin: '{instance.journalName}', Customized: {instance.isJournalCustomized}");
                 }
             }
             return instance;
         }
     }
     
-    public string JournalName => journalName;
+    public string JournalName 
+    { 
+        get 
+        { 
+            Debug.Log($"Getting JournalName: '{journalName}'");
+            return journalName; 
+        } 
+    }
     public bool IsEyeActive => isEyeActive;
     public int TotalClues => clues.Count;
     public bool IsCustomized => isJournalCustomized;
@@ -43,14 +55,22 @@ public class Journal : ScriptableObject
     /// </summary>
     public void SetJournalSkin(string skinName)
     {
+        Debug.Log($"SetJournalSkin called with: '{skinName}', Currently customized: {isJournalCustomized}");
+        
         if (!isJournalCustomized)
         {
             // Validate skin name matches available skins
             if (skinName == "Coffee" || skinName == "Default" || skinName == "Fly")
             {
+                string oldName = journalName;
                 journalName = skinName;
                 isJournalCustomized = true;
-                Debug.Log($"Journal skin set to: {journalName}");
+                Debug.Log($"Journal skin changed from '{oldName}' to '{journalName}' - Customized: {isJournalCustomized}");
+                
+                // Force save the ScriptableObject
+                #if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(this);
+                #endif
             }
             else
             {
@@ -61,7 +81,10 @@ public class Journal : ScriptableObject
         {
             Debug.LogWarning("Journal skin has already been set and cannot be changed.");
         }
-    }
+        {
+            Debug.LogWarning("Journal skin has already been set and cannot be changed.");
+        }
+}
     
     /// <summary>
     /// Gets the path to the selected journal skin texture.
