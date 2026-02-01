@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro; // Required for TextMeshPro
+using UnityEngine.SceneManagement;
 
 public class TypewriterEffectCoffee : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class TypewriterEffectCoffee : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f; // Time delay 
     // [SerializeField] private string fullText;
     [SerializeField] private bool wait;
+    public GameObject Space;
 
     IEnumerator Start()
     {
@@ -26,6 +28,9 @@ public class TypewriterEffectCoffee : MonoBehaviour
             textComponent.color = new Color(0.69f, 0.83f, 1f, 1f);
             string fullText2 = "Ahem, alright, coffee first. Now we can start!";
             StartCoroutine(TypeText(fullText2));
+
+            yield return new WaitForSeconds(2f);
+            Space.SetActive(true);
         }
     }
 
@@ -48,4 +53,12 @@ public class TypewriterEffectCoffee : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
     }
+
+    void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                {
+                SceneManager.LoadScene("Computer1");
+                }
+        }
 }
