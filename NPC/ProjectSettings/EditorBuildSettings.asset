@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JournalChoice.unity
     guid: 07505c20dd6a6bd448fd995a67994ac3
+  - enabled: 1
+    path: Assets/Scenes/Computer1.unity
+    guid: 6334a56831ff9104d99988b533e8790e
+  - enabled: 1
+    path: Assets/Scenes/Computer2.unity
+    guid: 0a1277b6bc5152047ac2ea2de13d0f38
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
