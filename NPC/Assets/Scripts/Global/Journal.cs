@@ -13,6 +13,10 @@ public class Journal : ScriptableObject
     [SerializeField] private List<string> clues = new List<string>();
     
     [SerializeField] private bool isEyeActive = false;
+
+    public bool Clue1Added = false;
+    public bool Clue2Added = false;
+    public bool Clue3Added = false;
     
     // Static instance for easy access across scenes
     private static Journal instance;
